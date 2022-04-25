@@ -39,3 +39,33 @@ function wybSpec(){
     document.getElementById("wybSpec").value=iloscSpec;
     ustawWolne();
 }
+function generujHaslo(){
+    let haslo=[""];
+    const alfabetMale="abcdefghijklmnoprstuvwxyz";
+    const alfabetDuze="ABCDEFGHIJKLMNOPRSTUVWXYZ";
+    const cyfry="0123456789";
+    const spec="`~@#$%^&*()-_=+[]{};':,./<>?";
+
+    //losowanie małych liter
+    for(let i=0;i<iloscMaleL;i++){
+        haslo.push(alfabetMale.charAt(Math.floor(Math.random()*alfabetMale.length)));
+    }
+    //losowanie dużych liter
+    for(let i=0;i<iloscDuzeL;i++){
+        haslo.push(alfabetDuze.charAt(Math.floor(Math.random()*alfabetDuze.length)));
+    }
+    //losowanie cyfr
+    for(let i=0;i<iloscCyfr;i++){
+        haslo.push(cyfry.charAt(Math.floor(Math.random()*cyfry.length)));
+    }
+    //losowanie znaków specjalnych
+    for(let i=0;i<iloscSpec;i++){
+        haslo.push(spec.charAt(Math.floor(Math.random()*spec.length)));
+    }
+        
+        haslo.sort(function(){return 0.5 - Math.random()});;
+        const tab=haslo.join('');
+        document.getElementById("test").value=tab;
+    
+    
+}
